@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hpz.dao.AdminSessionDao">
+    <resultMap id="adminSessionMap" type="com.hpz.out.model.AdminSession">
+        <id property="id" column="id" />
+        <result property="administrator.id" column="administrator_id"/>
+        <result property="accessIp" column="access_ip"/>
+        <result property="accessTime" column="access_time"/>
+    </resultMap>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="com.hpz.out.model.AdminSession">
+        insert into admin_session(administrator_id,access_ip,access_time)
+        values (#{administrator.id},#{accessIp},#{accessTime})
+    </insert>
+
+
+</mapper>
